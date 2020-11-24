@@ -9,6 +9,7 @@
 \usepackage{xcolor}
 \usepackage{graphicx}  %插入jpg图片
 \usepackage{tikz} %插入tikz图片
+\usetikzlibrary{shapes,arrows,chains} %
 \usepackage{booktabs}
 \usepackage{enumitem} %enumrate
 \usepackage{tabularx} %弹性列表格
@@ -172,7 +173,7 @@ The flow chart is shown below\cite{zjuthesisrules}:
 
 %流程图
 \begin{figure}[H]   \centering
-	\scriptsize
+	\scriptsize %同上标字体
 	\tikzstyle{format}=[rectangle,draw,thin,fill=white,align=center]
 	\tikzstyle{point}=[coordinate,on grid,]
 	\begin{tikzpicture}[node distance=20mm,
@@ -193,6 +194,43 @@ The flow chart is shown below\cite{zjuthesisrules}:
 	\label{fig2} %label置于caption后
 \end{figure}
 
+
+% Define block styles
+	
+\begin{figure} \centering
+	\tikzstyle{decision} = [diamond, draw, fill=blue!20, 
+    text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
+	\tikzstyle{block} = [rectangle, draw, fill=blue!20, 
+    text width=5em, text centered, rounded corners, minimum height=4em]
+	\tikzstyle{line} = [draw, -latex']
+	\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm,
+    minimum height=2em]
+	\begin{tikzpicture}[node distance = 2cm, auto]
+		% Place nodes
+		\node [block] (init) {initialize model};
+		\node [cloud, left of=init] (expert) {expert};
+		\node [cloud, right of=init] (system) {system};
+		\node [block, below of=init] (identify) {identify candidate models};
+		\node [block, below of=identify] (evaluate) {evaluate candidate models};
+		\node [block, left of=evaluate, node distance=3cm] (update) {update model};
+		\node [decision, below of=evaluate] (decide) {is best candidate better?};
+		\node [block, below of=decide, node distance=3cm] (stop) {stop};
+		% Draw edges
+		\path [line] (init) -- (identify);  
+		\path [line] (identify) -- (evaluate);
+		\path [line] (evaluate) -- (decide);
+		\path [line] (decide) -| node [near start] {yes} (update); % "-|" 指折线，横竖
+		\path [line] (update) |- (identify);
+		\path [line] (decide) -- node {no}(stop); 
+		\path [line,dashed] (expert) -- (init);
+		\path [line,dashed] (system) -- (init);
+		\path [line,dashed] (system) |- (evaluate);
+	\end{tikzpicture}
+	\caption{Flow Diagram2}
+	\label{fig3} %label置于caption后
+\end{figure}
+
+
 % 小节
 \subsection{subsection 2.2}
 \lipsum[11]   %随机生成一段文字
@@ -200,7 +238,7 @@ The table is shown below:
 \begin{table}[H]
 	\centering
 	\caption{Three Wire Table}
-	\label{fig3}
+	\label{fig4}
 	\begin{tabular}{cccc}
 		\toprule
 		&PC(ms) &arm(ms) &fpga(ms)\\
