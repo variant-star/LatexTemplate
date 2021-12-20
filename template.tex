@@ -14,6 +14,8 @@
 \usepackage{enumitem} %enumrate
 \usepackage{tabularx} %弹性列表格
 \usepackage{multido} %loop do
+\usepackage{ulem} %强调文本，例如\uline
+
 % \usepackage[style=numeric,
 %             sorting=none,
 %             bibstyle=gb7714-2015,
@@ -44,7 +46,7 @@
 \pagestyle{plain}
 
 % personal information
-\title{Data-based Transfer Learning}
+\title{Latex Template}
 \author{variant}
 \date{\today}
 
@@ -64,22 +66,16 @@
 \begin{figure}[htpb]	\centering
 	\includegraphics[width=0.5\textwidth]{fig/ZJUlogo.png}
 \end{figure}
-% \begin{center}
-% 	\bfseries
-% 	\quad \\
-% 	\quad \\
-% 	\fontsize{30}{17} 课 \quad 程 \quad 报 \quad 告
-% 	\vskip 3.5cm
-% 	\zihao{2} Variant 142857\\
-% \end{center}
+
 \begin{center}
-	\bfseries \zihao{4}
+	\bfseries
+	\zihao{4}
 	\begin{tabularx}{.8\textwidth}{>{\FangSong}l >{\NewRoman}X<{\centering}}
-		题目        &  \uline{Data-based Transfer Learning} \\
+		题目        &  \uline{Latex Template} \\
 		~          &  ~\\
-		学生姓名    & \uline{\hfill Variant \hfill} \\
-		学生学号    & \uline{\hfill 142857 \hfill} \\
-		年级与专业  & \uline{\hfill \mbox{2016}ISEE \hfill} \\
+		学生姓名    & \uline{\hfill variant \hfill} \\
+		学生学号    & \uline{\hfill 147258369 \hfill} \\
+		年级与专业  & \uline{\hfill \mbox{20}ISEE \hfill} \\
 		~          & ~\\
 		递交日期    &  \uline{\hfill \today \hfill} \\
 	\end{tabularx}
@@ -98,7 +94,6 @@
 \end{abstract}
 \noindent \textbf{Keywords: } apple, applepen, pineapplepen
 
-
 % 大节
 \section{Section 1}
 \lipsum[17] %随机生成一段文字
@@ -106,9 +101,9 @@
 \subsection{subsection 1.1}
 \lipsum[16]
 \begin{enumerate}[itemindent=0pt,topsep=0pt,leftmargin=*,parsep=0pt,itemsep=0pt,label=(\arabic*)]
-	\item The first item is applepen.
-	\item The second item is pineapplepen.
-	\item The third item is pen-pineapple-apple-pen.
+	\item \lipsum[2]
+	\item \lipsum[2]
+	\item \lipsum[3]
 \end{enumerate}
 
 % 小节
@@ -117,7 +112,8 @@
 As shown in Figure~\ref{fig1}.
 
 %图表
-\begin{figure}[H]	\centering
+\begin{figure}[H]
+	\centering
 	\subfigure[Harr feature]{
 		\label{fig:a} 
 		\includegraphics[width=2cm,height=2cm]{fig/1.jpg}}
@@ -172,7 +168,8 @@ As shown in Figure~\ref{fig1}.
 The flow chart is shown below\cite{zjuthesisrules}:
 
 %流程图
-\begin{figure}[H]   \centering
+\begin{figure}[H]
+	\centering
 	\scriptsize %同上标字体
 	\tikzstyle{format}=[rectangle,draw,thin,fill=white,align=center]
 	\tikzstyle{point}=[coordinate,on grid,]
@@ -197,13 +194,14 @@ The flow chart is shown below\cite{zjuthesisrules}:
 
 % Define block styles
 	
-\begin{figure} \centering
+\begin{figure}[]
+	\centering
 	\tikzstyle{decision} = [diamond, draw, fill=blue!20, 
     text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
 	\tikzstyle{block} = [rectangle, draw, fill=blue!20, 
     text width=5em, text centered, rounded corners, minimum height=4em]
 	\tikzstyle{line} = [draw, -latex']
-	\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm,
+	\tikzstyle{cloud} = [draw, ellipse, fill=red!20, node distance=3cm,
     minimum height=2em]
 	\begin{tikzpicture}[node distance = 2cm, auto]
 		% Place nodes
@@ -228,6 +226,21 @@ The flow chart is shown below\cite{zjuthesisrules}:
 	\end{tikzpicture}
 	\caption{Flow Diagram2}
 	\label{fig3} %label置于caption后
+\end{figure}
+
+\begin{figure}[]
+	\centering
+	\scriptsize
+	\tikzstyle{decision} = [diamond, draw, fill=blue!20, 
+    text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
+	\tikzstyle{block} = [rectangle, draw, fill=blue!20, 
+    text width=5em, text centered, rounded corners, minimum height=4em]
+	\tikzstyle{line} = [draw, -latex']
+	\tikzstyle{cloud} = [draw, ellipse, fill=red!20, node distance=3cm,
+    minimum height=2em]
+	% \begin{tikzpicture}[node distance = 2cm, auto]
+	% 	\node [block] (P) {某行业}
+	% \end{tikzpicture}
 \end{figure}
 
 
